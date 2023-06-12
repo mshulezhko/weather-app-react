@@ -1,20 +1,28 @@
-import { useState } from 'react'
-
-
+import { useState, useEffect } from 'react'
 import axios from 'axios'
+import ForecastData from './ForecastData'
 
 export default function CurrentCity(props) {
     let [temp, setTemp] = useState(null);
     let [description, setDescription] = useState(null);
     let [humidity, setHumidity] = useState(null);
     let [wind, setWind] = useState(null);
+    let [forecastBlock, setForecastBlock] = useState(null);
+    const [mounted, setMounted] = useState(false)
 
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=600157a0514e78d72315f525be6579c1&lang=en&units=metric`;
 
-    axios.get(url).then(setData)
+
+    if (!mounted) {
+        axios.get(url).then(setData)
+    }
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
 
     function setData(response) {
-        console.log(url)
         setTemp(Math.round(response.data.main.temp))
         setDescription(response.data.weather[0].description)
         setHumidity(response.data.main.humidity)
@@ -27,6 +35,8 @@ export default function CurrentCity(props) {
         );
 
         iconElement.setAttribute("alt", description);
+
+        return setForecastBlock(<ForecastData coord={response.data.coord} />)
     }
 
     return (
@@ -37,6 +47,7 @@ export default function CurrentCity(props) {
             <p>Temperature: {temp}°C</p>
             <p>Wind: {wind}km/h</p>
             <img id="icon" src="" alt="" />
+            {forecastBlock}
         </div>
     )
 }
