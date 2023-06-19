@@ -1,0 +1,22 @@
+{
+  "name": "weather-app-react",
+  "version": "1.0.0",
+  "description": "weather-app-react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mshulezhko/weather-app-react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mshulezhko/weather-app-react/issues"
+  },
+  "homepage": "https://github.com/mshulezhko/weather-app-react#readme"
+}
