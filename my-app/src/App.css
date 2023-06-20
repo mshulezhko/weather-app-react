@@ -48,3 +48,9 @@
   margin-bottom: 10px;
   border-radius: 15px;
 }
+
+#forecast {
+  display: flex;
+  margin-top: 40px;
+  justify-content: center;
+}

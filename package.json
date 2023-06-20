@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/mshulezhko/weather-app-react/issues"
   },
-  "homepage": "https://github.com/mshulezhko/weather-app-react#readme"
+  "homepage": "https://github.com/mshulezhko/weather-app-react#readme",
+  "dependencies": {
+    "react-scripts": "^5.0.1"
+  }
 }
